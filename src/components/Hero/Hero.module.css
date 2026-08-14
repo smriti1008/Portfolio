@@ -1,0 +1,423 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 80px 0;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+  z-index: 10;
+}
+
+/* Background Blobs */
+.glowingBlob1, .glowingBlob2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatBlobs 10s infinite alternate ease-in-out;
+}
+
+.glowingBlob1 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-primary);
+  top: -100px;
+  right: -50px;
+}
+
+.glowingBlob2 {
+  width: 350px;
+  height: 350px;
+  background: var(--color-secondary);
+  bottom: -50px;
+  left: -50px;
+  animation-delay: -5s;
+}
+
+:global(.light-mode) .glowingBlob1, :global(.light-mode) .glowingBlob2 {
+  opacity: 0.1;
+}
+
+@keyframes floatBlobs {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(50px, 30px) scale(1.15);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.greeting {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-secondary);
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+:global(.light-mode) .greeting {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.typingWrapper {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+  color: var(--color-text-muted);
+}
+
+.typeAnimation {
+  color: var(--color-primary-light);
+  font-weight: 600;
+}
+
+:global(.light-mode) .typeAnimation {
+  color: var(--color-primary);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 550px;
+  margin-bottom: 40px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 45px;
+}
+
+.ctaPrimary, .ctaSecondary {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ctaPrimary {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-primary);
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+.ctaPrimary:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+}
+
+.ctaSecondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--color-primary);
+}
+
+:global(.light-mode) .ctaSecondary:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.socialRow {
+  display: flex;
+  gap: 20px;
+}
+
+.socialRow a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: all 0.3s ease;
+}
+
+.socialRow a:hover {
+  color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-primary);
+}
+
+:global(.light-mode) .socialRow a:hover {
+  color: var(--color-primary);
+}
+
+/* Visual - Floating Orb/Sphere & Orbiting Rings in CSS 3D */
+.visualContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sphereWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.sphere {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #a78bfa 0%, #6d28d9 50%, #0f051d 100%);
+  box-shadow: 0 0 50px rgba(139, 92, 246, 0.5), inset -10px -10px 30px rgba(0,0,0,0.8);
+  animation: floatOrb 6s infinite ease-in-out;
+  z-index: 5;
+}
+
+:global(.light-mode) .sphere {
+  background: radial-gradient(circle at 30% 30%, #c7d2fe 0%, #8b5cf6 50%, #4c1d95 100%);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+}
+
+.sphereInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+}
+
+.ring1, .ring2, .ring3 {
+  position: absolute;
+  border: 1.5px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rotateRing 12s infinite linear;
+}
+
+.ring1 {
+  width: 280px;
+  height: 280px;
+  transform: rotateX(70deg) rotateY(15deg);
+}
+
+.ring2 {
+  width: 320px;
+  height: 320px;
+  border-color: rgba(6, 182, 212, 0.2);
+  transform: rotateX(60deg) rotateY(-35deg);
+  animation-duration: 16s;
+  animation-direction: reverse;
+}
+
+.ring3 {
+  width: 220px;
+  height: 220px;
+  border-color: rgba(244, 63, 94, 0.2);
+  transform: rotateX(45deg) rotateY(45deg);
+  animation-duration: 8s;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.02);
+  }
+}
+
+@keyframes rotateRing {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--color-text-muted);
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    top: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 22px;
+    opacity: 0;
+  }
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrows span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid var(--color-text-muted);
+  border-right: 2px solid var(--color-text-muted);
+  transform: rotate(45deg);
+  margin: -2px;
+  animation: scrollArrow 1.5s infinite;
+}
+
+.arrows span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+@keyframes scrollArrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 60px;
+  }
+  
+  .content {
+    align-items: center;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .typingWrapper {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    margin: 0 auto 30px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .typingWrapper {
+    font-size: 1.4rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .ctaPrimary, .ctaSecondary {
+    justify-content: center;
+  }
+
+  .sphereWrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .sphere {
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -1,0 +1,204 @@
+.educationSection {
+  padding: var(--section-padding);
+  background-color: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--color-text);
+  font-family: var(--font-display);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+}
+
+/* Timeline Layout */
+.timeline {
+  position: relative;
+  padding-left: 50px;
+}
+
+/* Vertical track line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  opacity: 0.3;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Badge */
+.timelineBadge {
+  position: absolute;
+  top: 5px;
+  left: -50px; /* aligns perfectly over the line (left: 20px - badge_width/2) */
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+:global(.light-mode) .timelineBadge {
+  background: var(--color-bg-card);
+  color: var(--color-primary);
+}
+
+.timelineItem:hover .timelineBadge {
+  transform: scale(1.15);
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  border-color: var(--color-primary-light);
+}
+
+/* Card content */
+.timelineContent {
+  padding: 30px;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+:global(.light-mode) .timelineContent {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.timelineItem:hover .timelineContent {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.period {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-secondary-light);
+  display: inline-block;
+  margin-bottom: 10px;
+  background: rgba(6, 182, 212, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+:global(.light-mode) .period {
+  color: var(--color-secondary-dark);
+}
+
+.degree {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 5px;
+}
+
+.institution {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-primary-light);
+  margin-bottom: 15px;
+}
+
+:global(.light-mode) .institution {
+  color: var(--color-primary-dark);
+}
+
+.description {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.gradeBadge {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 35px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timelineBadge {
+    left: -35px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .timelineBadge svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .degree {
+    font-size: 1.2rem;
+  }
+
+  .timelineContent {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Color Palette - Default Dark Mode */
+  --color-bg: #07080d;
+  --color-bg-secondary: #0e1017;
+  --color-bg-card: #141724;
+  --color-border: rgba(255, 255, 255, 0.06);
+
+  --color-primary: #8b5cf6;       /* Purple */
+  --color-primary-light: #a78bfa;
+  --color-primary-dark: #6d28d9;
+  
+  --color-secondary: #06b6d4;     /* Cyan */
+  --color-secondary-light: #22d3ee;
+  --color-secondary-dark: #0891b2;
+
+  --color-text: #f3f4f6;
+  --color-text-muted: #9ca3af;
+  --color-text-dim: #4b5563;
+
+  --color-accent: #f43f5e;        /* Rose Accent */
+  --color-white: #ffffff;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+  --gradient-accent: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  --gradient-dark: linear-gradient(180deg, #07080d 0%, #0e1017 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  --gradient-text: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+
+  /* Spacing */
+  --section-padding: 100px 8%;
+
+  /* Shadows */
+  --shadow-primary: 0 10px 30px rgba(139, 92, 246, 0.2);
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.35);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root.light-mode {
+  /* Color Palette - Light Mode Override */
+  --color-bg: #f9fafb;
+  --color-bg-secondary: #f3f4f6;
+  --color-bg-card: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.08);
+
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-text-dim: #9ca3af;
+
+  --gradient-dark: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+  --gradient-text: linear-gradient(135deg, #111827 0%, #6d28d9 100%);
+
+  --shadow-primary: 0 10px 30px rgba(139, 92, 246, 0.1);
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
