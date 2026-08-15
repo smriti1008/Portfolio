@@ -6,7 +6,7 @@ const Education = () => {
   const educationData = [
     {
       degree: "Bachelor of Technology in Mechanical Engineering",
-      institution: "Madan Mohan MAlaviya Univerity of technology",
+      institution: "Madan Mohan Malaviya Univerity of technology",
       period: "2023 - 2027",
       description:
         "Specialized in Advanced Web Infrastructures, Software Architecture, and Distributed Database Systems. Researched high-performance rendering engines and visual interaction systems.",
@@ -14,22 +14,20 @@ const Education = () => {
       grade: "CGPA : 7.9/10",
     },
     {
-      degree: "Senior Secondary (CBSE)",
+      degree: "Intermediate (CBSE)",
       institution: "St. Xavier's Inter College",
       period: "2021 - 2022",
-      description:
-        "Completed rigorous coursework in Data Structures, Algorithms, Systems Design, and Frontend Frameworks. Served as lead developer for the university's technical developer club.",
+      
       icon: <FiAward size={20} />,
-      grade: "Grade : 83.3%",
+      grade: "Grade : 83.4%",
     },
     {
-      degree: "Intermediate (CBSE)",
-      institution: "St. Xavier Inter College",
+      degree: "High School (CBSE)",
+      institution: "St. Xavier's Inter College",
       period: "2019 - 2020",
-      description:
-        "Focused on Mathematics, Physics, Chemistry, and Computer Science. Developed foundational algorithmic logical skills and simple desktop applications.",
+      
       icon: <FiCompass size={20} />,
-      grade: "Grade : 94%",
+      grade: "Grade : 93.2%",
     },
   ];
 
